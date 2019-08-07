@@ -1,6 +1,7 @@
 #include <MKL25Z4.H>
 #include "debug.h"
 
+
 void Init_Debug_Signals(void) {
 	// Enable clock to port B
 	SIM->SCGC5 |= SIM_SCGC5_PORTB_MASK;
