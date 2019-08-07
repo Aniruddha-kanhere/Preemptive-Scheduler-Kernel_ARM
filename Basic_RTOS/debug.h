@@ -16,6 +16,7 @@
 #define DEBUG_STOP(channel) { PTB->PCOR = MASK(channel); }
 #define DEBUG_TOGGLE(channel) { PTB->PTOR = MASK(channel); }
 
+
 void Init_Debug_Signals(void);
 
 #endif // DEBUG_H
