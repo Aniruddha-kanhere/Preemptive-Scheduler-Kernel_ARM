@@ -6,7 +6,29 @@
 
 ;define area of this file as assembly_code and allow it to be read_only
 	AREA    assembly_code, CODE, READONLY
-		
+
+
+;   uint32_t EnterCritical();
+;   returns the value of PRIMASK which needs to be
+;   stored in a uint32_t value
+EnterCritical\
+		PROC
+		EXPORT EnterCritical
+		MRS R0, PRIMASK
+		CPSID I
+		ENDP
+
+
+;   void ExitCritical(uint32_t );
+;   Pass the uint32_t value that you got from 
+;   EnterCritical to this function
+ExitCritical\
+		PROC
+		EXPORT ExitCritical
+		MSR PRIMASK, R0
+		ENDP
+
+
 
 Start_Kernel\
 		PROC

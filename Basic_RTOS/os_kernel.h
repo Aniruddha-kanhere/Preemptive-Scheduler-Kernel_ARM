@@ -19,11 +19,19 @@
 #define KERNEL_TICK_FREQUENCY      1000
 
 #define OFFSET_OF(type, object)    ((size_t)(&(((type*)0)->object)))
+#define SEM_CREATE(sem, initial_count, max_count)                   \
+                                   sem.count = initial_count;       \
+																	 sem.max_value = max_count;
 
 enum task_status   {Ready, Running, Blocked, Preempted, Finished};
 enum task_priority {Lowest, Low, Medium, High, Highest};
 
 typedef uint32_t StackPtr_t;
+
+typedef struct semaphore{
+	int count;
+	int max_value;
+}semaphore_t;
 
 struct task{
 	StackPtr_t *stack_ptr;
@@ -32,7 +40,6 @@ struct task{
 	void (*task)(void*);
 	uint16_t timeout;
 };
-
 
 typedef struct task_list{
 	struct task* TaskPtr;

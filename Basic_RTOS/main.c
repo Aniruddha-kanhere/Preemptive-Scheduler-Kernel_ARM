@@ -63,12 +63,16 @@ struct task task1;
 struct task task2;
 struct task task3;
 
+semaphore_t sem1;
+
 int main()
 {	
 	Init_Debug_Signals();
 	LED_Initialize();
 	
-	tsk2((void *)0);
+	SEM_CREATE(sem1, 1 , 10);
+	
+	//tsk2((void *)0);
   os_initialise();
 	os_InsertTask(tsk1, (void*)0, Medium, (StackPtr_t*)stack1, &task1);
 	os_InsertTask(tsk2, (void*)0, Medium, (StackPtr_t*)stack2, &task2);
