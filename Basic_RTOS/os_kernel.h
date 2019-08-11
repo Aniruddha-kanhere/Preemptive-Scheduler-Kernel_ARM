@@ -28,6 +28,7 @@ enum task_priority {Lowest, Low, Medium, High, Highest};
 
 typedef uint32_t StackPtr_t;
 
+//Structure used for semaphores
 typedef struct semaphore{
 	int count;
 	int max_value;
