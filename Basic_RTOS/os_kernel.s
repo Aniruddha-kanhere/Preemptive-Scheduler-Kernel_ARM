@@ -7,7 +7,6 @@
 ;define area of this file as assembly_code and allow it to be read_only
 	AREA    assembly_code, CODE, READONLY
 
-
 ;   uint32_t EnterCritical();
 ;   returns the value of PRIMASK which needs to be
 ;   stored in a uint32_t value
